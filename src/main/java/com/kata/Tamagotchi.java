@@ -31,10 +31,14 @@ public class Tamagotchi {
         this.energy = energy;
     }
     
-    public void eat(){
-        if(this.getHunger()>1)this.setHunger(this.getHunger()-2);
-        
-        if(this.getEnergy()<10) this.setEnergy(this.getEnergy()+1);
+    public String eat(){
+        if(this.getHunger()>1){this.setHunger(this.getHunger()-2);
+        }
+        if(this.getEnergy()<10){
+        this.setEnergy(this.getEnergy()+1);
+        return myEnergyIs(this.getEnergy());
+        }
+        return "Mis necesidades estan cubiertas, gracias";
     } 
 
     public void sleep(){
@@ -47,6 +51,20 @@ public class Tamagotchi {
             this.setEnergy(this.getEnergy()-1);
             this.setMood(this.getMood()+1);
         };
+    }
+
+    public String myEnergyIs(int value){
+        if(value<3) return "(-_-)";
+        if(value==0) return "(-_-) zZZ";
+        if(value>=3) return "(:-|)";
+        return null;
+    }
+
+    public String myMoodIs(int value){
+        if(value<2) return "ఠ_ఠ";
+        if(value>8) return ":-)";
+        if(value<=8 && value >=2) return "(:-|)";
+        return null;
     }
 
 }

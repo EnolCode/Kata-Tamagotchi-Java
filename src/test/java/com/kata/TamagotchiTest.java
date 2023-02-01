@@ -26,6 +26,7 @@ public class TamagotchiTest {
         gochi.eat();
         gochi.eat();
         assertEquals(8, gochi.getEnergy());
+        assertEquals("(:-|)", gochi.eat());
     }
 
     @Test

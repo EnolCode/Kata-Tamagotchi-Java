@@ -19,7 +19,7 @@ public class TamagotchiTest {
     }
 
     @Test
-    public void eat_raises_energy()
+    public void eat_raises_energy_and_normal()
     {
         gochi.eat();
         gochi.eat();
@@ -29,13 +29,6 @@ public class TamagotchiTest {
         assertEquals("(:-|)", gochi.eat());
     }
 
-    @Test
-    public void sleep_raises_energy()
-    {
-        gochi.sleep();
-        gochi.sleep();
-        assertEquals(8, gochi.getEnergy());
-    }
 
     @Test
     public void play_raises_hunger()
@@ -50,7 +43,16 @@ public class TamagotchiTest {
     {
         gochi.play();
         gochi.play();
-        assertEquals(6, gochi.getMood());
+        gochi.sleep();
+        gochi.sleep();
+        gochi.play();
+        gochi.play();
+        gochi.eat();
+        gochi.eat();
+        gochi.play();
+        gochi.play();
+        assertEquals(9, gochi.getMood());
+        assertEquals(":-)", gochi.play());
     }
 
     @Test

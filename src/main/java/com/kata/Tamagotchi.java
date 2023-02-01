@@ -32,25 +32,31 @@ public class Tamagotchi {
     }
     
     public String eat(){
-        if(this.getHunger()>1){this.setHunger(this.getHunger()-2);
+        if(this.getHunger()>=0){this.setHunger(this.getHunger()-2);
         }
-        if(this.getEnergy()<10){
+        if(this.getEnergy()<=10){
         this.setEnergy(this.getEnergy()+1);
         return myEnergyIs(this.getEnergy());
         }
         return "Mis necesidades estan cubiertas, gracias";
     } 
 
-    public void sleep(){
-        if(this.getEnergy()<10) this.setEnergy(this.getEnergy()+2);
+    public String sleep(){
+        if(this.getEnergy()<=10) {
+            this.setEnergy(this.getEnergy()+2);
+        }
+        return "(-_-) zZZ";
     } 
 
-    public void play(){
-        if(this.getHunger()<10 && this.getEnergy()<10 && this.getMood()<10){
+    public String play(){
+        if(this.getHunger()<=10 && this.getEnergy()<=10 && this.getMood()<=10){
             this.setHunger(this.getHunger()+1);
             this.setEnergy(this.getEnergy()-1);
             this.setMood(this.getMood()+1);
+            return myMoodIs(this.getMood());
         };
+
+        return "No puedo jugar mas";
     }
 
     public String myEnergyIs(int value){

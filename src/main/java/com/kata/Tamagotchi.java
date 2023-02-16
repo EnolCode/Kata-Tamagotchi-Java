@@ -45,7 +45,7 @@ public class Tamagotchi {
         if(this.getEnergy()<=10) {
             this.setEnergy(this.getEnergy()+2);
         }
-        return "(-_-) zZZ";
+        return "(-_-) zZZz";
     } 
 
     public String play(){
